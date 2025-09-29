@@ -21,4 +21,4 @@ my_inventory.add_guitar(guitar_005)
 my_inventory.add_guitar(guitar_006)
 
 search_rslt = my_inventory.search_guitar(Builder.FENDER, "Stratocaster", GuitarType.ELECTRIC, Wood.ALDER, Wood.MAPLE)
-print(search_rslt.serial_number if search_rslt else "Guitar not found")
+print(search_rslt if search_rslt else "Guitar not found")
