@@ -15,4 +15,5 @@ my_inventory.add_guitar(guitar_003)
 my_inventory.add_guitar(guitar_004)
 my_inventory.add_guitar(guitar_005)
 
-print(my_inventory.get_guitars())
+search_rslt = my_inventory.search_guitar("Fender", "Stratocaster", "Electric", "Alder", "Maple")
+print(search_rslt.serial_number if search_rslt else "Guitar not found")
