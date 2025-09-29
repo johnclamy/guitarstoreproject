@@ -3,7 +3,7 @@ from guitar import Guitar
 
 class Inventory:
     def __init__(self):
-        self.guitars: list[Guitar] = []
+        self._guitars: list[Guitar] = []
 
     def add_guitar(self, guitar: Guitar) -> None:
         self.guitars.append(guitar)
@@ -13,7 +13,7 @@ class Inventory:
             self.guitars.remove(guitar)
 
     def get_guitars(self) -> list[Guitar]:
-        return self.guitars
+        return self._guitars
 
     def search_guitar(self, builder: str, model: str, guitar_type: str, backwood: str, topwood: str) -> Guitar | None:
         for guitar in self.guitars:
