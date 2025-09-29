@@ -1,4 +1,7 @@
 from guitar import Guitar
+from builder import Builder
+from guitar_type import GuitarType
+from wood import Wood
 
 
 class Inventory:
@@ -15,13 +18,13 @@ class Inventory:
     def get_guitars(self) -> list[Guitar]:
         return self._guitars
 
-    def search_guitar(self, builder: str, model: str, guitar_type: str, backwood: str, topwood: str) -> Guitar | None:
+    def search_guitar(self, builder: Builder, model: str, guitar_type: GuitarType, backwood: Wood, topwood: Wood) -> Guitar | None:
         for guitar in self._guitars:
-            if (guitar.builder.lower() == builder.lower() and
+            if (guitar.builder == builder and
                 guitar.model.lower() == model.lower() and
-                guitar.guitar_type.lower() == guitar_type.lower() and
-                guitar.backwood.lower() == backwood.lower() and
-                guitar.topwood.lower() == topwood.lower()):
+                guitar.guitar_type == guitar_type and
+                guitar.backwood == backwood and
+                guitar.topwood == topwood):
                 return guitar
         return None
 
