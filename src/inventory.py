@@ -22,11 +22,11 @@ class Inventory:
         guitars: list[Guitar] = []
 
         for guitar in self._guitars:
-            if (guitar.builder == builder and
-                guitar.model.lower() == model.lower() and
-                guitar.guitar_type == guitar_type and
-                guitar.backwood == backwood and
-                guitar.topwood == topwood):
+            if (guitar.get_guitar_spec().builder == builder and
+                guitar.get_guitar_spec().model.lower() == model.lower() and
+                guitar.get_guitar_spec().guitar_type == guitar_type and
+                guitar.get_guitar_spec().backwood == backwood and
+                guitar.get_guitar_spec().topwood == topwood):
                 guitars.append(guitar)
 
         return guitars if guitars else None
