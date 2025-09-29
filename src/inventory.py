@@ -18,14 +18,16 @@ class Inventory:
     def get_guitars(self) -> list[Guitar]:
         return self._guitars
 
-    def search_guitar(self, builder: Builder, model: str, guitar_type: GuitarType, backwood: Wood, topwood: Wood) -> Guitar | None:
+    def search_guitar(self, builder: Builder, model: str, guitar_type: GuitarType, backwood: Wood, topwood: Wood) -> list[Guitar] | None:
+        guitars: list[Guitar] = []
+
         for guitar in self._guitars:
             if (guitar.builder == builder and
                 guitar.model.lower() == model.lower() and
                 guitar.guitar_type == guitar_type and
                 guitar.backwood == backwood and
                 guitar.topwood == topwood):
-                return guitar
-        return None
+                guitars.append(guitar)
 
+        return guitars if guitars else None
     
