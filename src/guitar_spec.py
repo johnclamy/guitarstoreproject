@@ -1,15 +1,17 @@
 from builder import Builder
 from guitar_type import GuitarType
+from guitar_string_number import GuitarStringNumber
 from wood import Wood
 
 
 class GuitarSpec:
-    def __init__(self, builder: Builder, model: str, guitar_type: GuitarType, backwood: Wood, topwood: Wood):
+    def __init__(self, builder: Builder, model: str, guitar_type: GuitarType, backwood: Wood, topwood: Wood, strings: GuitarStringNumber = GuitarStringNumber.SIX):
         self._builder = builder
         self._model = model
         self._guitar_type = guitar_type
         self._backwood = backwood
         self._topwood = topwood
+        self._strings = strings
 
     @property
     def builder(self):
@@ -51,5 +53,13 @@ class GuitarSpec:
     def topwood(self, new_topwood: Wood):
         self._topwood = new_topwood
 
+    @property
+    def strings(self):
+        return self._strings
+
+    @strings.setter
+    def strings(self, string_number: GuitarStringNumber):
+        self._strings = string_number
+
     def __str__(self) -> str:
-        return f"GuitarSpec(builder={self._builder}, model={self._model}, type={self._guitar_type}, backwood={self._backwood}, topwood={self._topwood})"
+        return f"GuitarSpec(builder={self._builder}, model={self._model}, type={self._guitar_type}, backwood={self._backwood}, topwood={self._topwood}, strings={self._strings})"
