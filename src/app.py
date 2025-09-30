@@ -3,6 +3,7 @@ from inventory import Inventory
 from guitar_spec import GuitarSpec
 from builder import Builder
 from guitar_type import GuitarType
+from guitar_string_number import GuitarStringNumber
 from wood import Wood
 
 
@@ -21,5 +22,5 @@ my_inventory.add_guitar(guitar_004)
 my_inventory.add_guitar(guitar_005)
 my_inventory.add_guitar(guitar_006)
 
-search_rslt = my_inventory.search_guitar(Builder.FENDER, "Stratocaster", GuitarType.ELECTRIC, Wood.ALDER, Wood.MAPLE)
+search_rslt = my_inventory.search_guitar(Builder.FENDER, "Stratocaster", GuitarType.ELECTRIC, Wood.ALDER, Wood.MAPLE, GuitarStringNumber.SIX)
 print(search_rslt if search_rslt else "Guitar not found")
